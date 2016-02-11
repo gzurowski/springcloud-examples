@@ -1,0 +1,7 @@
+---
+applications:
+- name: simple-rest-service
+  memory: 512M
+  instances: 1
+  host: simple-rest-service
+  path: target/simple-rest-service.jar
