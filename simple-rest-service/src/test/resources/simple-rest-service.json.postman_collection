@@ -1,0 +1,56 @@
+{
+	"id": "312dde0a-fdd8-13e1-5c1a-9244b35cca93",
+	"name": "Spring Cloud Examples :: Simple REST Service",
+	"description": "",
+	"order": [
+		"ecd35eea-9ce5-65b9-5111-4018b09d5d81",
+		"c57f55a3-ff8d-5425-002f-1fc1b6fff921"
+	],
+	"folders": [],
+	"timestamp": 1455265541833,
+	"owner": 0,
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "c57f55a3-ff8d-5425-002f-1fc1b6fff921",
+			"headers": "",
+			"url": "https://simple-rest-service.api.oneweb.cinteo.de/customers/3",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "312dde0a-fdd8-13e1-5c1a-9244b35cca93",
+			"data": [],
+			"dataMode": "params",
+			"name": "Get customer",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1455266813973,
+			"version": 2,
+			"responses": [],
+			"tests": "// Check status code\ntests[\"Status code OK\"] = responseCode.code === 200;\n\n// Check headers\ntests[\"Content-type is present\"] = postman.getResponseHeader(\"Content-Type\");\ntests[\"Content-type is correct\"] = postman.getResponseHeader(\"Content-Type\").startsWith(\"application/json\");\n\n// Check body\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Body contains correct ID\"] = jsonData.id === 3;\ntests[\"Body contains correct first name\"] = jsonData.firstName === \"Gregor\";\ntests[\"Body contains correct last name\"] = jsonData.lastName === \"Zurowski\";\n",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ecd35eea-9ce5-65b9-5111-4018b09d5d81",
+			"headers": "",
+			"url": "https://simple-rest-service.api.oneweb.cinteo.de/customers",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "312dde0a-fdd8-13e1-5c1a-9244b35cca93",
+			"data": [],
+			"dataMode": "params",
+			"name": "Get all customers",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1455266695990,
+			"version": 2,
+			"responses": [],
+			"tests": "// Check status code\ntests[\"Status code OK\"] = responseCode.code === 200;\n\n// Check headers\ntests[\"Content-type is present\"] = postman.getResponseHeader(\"Content-Type\");\ntests[\"Content-type is correct\"] = postman.getResponseHeader(\"Content-Type\").startsWith(\"application/json\");\n\n// Check body\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Body contains array\"] = jsonData.length > 0;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
